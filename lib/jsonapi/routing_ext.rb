@@ -88,11 +88,6 @@ module ActionDispatch
 
           options[:path] = format_route(@resource_type)
 
-          if res.resource_key_type == :uuid
-            options[:constraints] ||= {}
-            options[:constraints][:id] ||= /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/
-          end
-
           if options[:except]
             options[:except] = Array(options[:except])
             options[:except] << :new unless options[:except].include?(:new) || options[:except].include?('new')
